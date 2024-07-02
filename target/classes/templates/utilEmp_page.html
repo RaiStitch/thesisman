@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Utilizador empresarial Page</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <section>
+		<h2>Utilizador empresarial Page</h2>
+		        <form th:action="@{/util-emp/create_tema}" method="get">
+		            <input type="hidden" name="idUtilEmpCorrente" th:value="${idUtilEmpCorrente.id}" />
+		            <input type="submit" value="Submeter Tema" />
+		        </form>
+        <h2 id="error" th:text="${error}"> </h2>
+    </section>
+
+
+</body>
+</html>

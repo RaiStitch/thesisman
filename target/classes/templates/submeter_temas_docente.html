@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Tema</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<section>
+    <h2>Criar Tema:</h2>
+    <form th:action="@{/docente/submeter}" method="post">
+		<input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}"/>
+		
+		<label for="titulo">Título do Tema:</label>
+		<input type="text" id="titulo" name="titulo" required>
+		
+		<label for="descricao">Descrição:</label>
+		<textarea id="descricao" name="descricao" rows="4" required></textarea>
+		
+		<label for="remuneracao">Remuneração:</label>
+		<input type="number" id="remuneracao" name="remuneracao" step="0.01" required>
+
+        <label for="idAnoLectivo">Escolha o Ano Letivo:</label>
+        <select id="idAnoLectivo" name="idAnoLectivo">
+            <option th:each="ano : ${anosLetivos}" th:value="${ano.id}" th:text="${ano.dataInicio} + '/' + ${ano.dataFim}">Ano Letivo</option>
+        </select>
+		
+		<label for="mestradosEscolhidos">Escolha os Mestrados:</label>
+		<select id="mestradosEscolhidos" name="mestradosEscolhidos" multiple>
+			<option th:each="m : ${mestrados}" th:value="${m}" th:text="${m}">Mestrado</option>
+		</select>
+
+        <button type="submit">Submeter</button>
+    </form>
+</section>
+</body>
+</html>

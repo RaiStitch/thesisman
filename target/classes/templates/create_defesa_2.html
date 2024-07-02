@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Tema</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<section>
+    <h2>Agendar Defesa de Proposta:</h2>
+    <form th:action="@{/docente/agendar_defesa_presencial}" method="post">
+		<input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}"/>
+		
+		<input type="hidden" name="idAluno" th:value="${idAluno}"/>
+		
+		<input type="hidden" name="data" th:value="${data}"/>
+
+        <label for="idArguente">Escolha o Arguente:</label>
+        <select id="idArguente" name="idArguente">
+            <option th:each="d : ${docentes}" th:value="${d.id}" th:text="${d.nDocente} + ' ' + ${d.nome} + ' ' + ${d.apelido}">Aluno</option>
+        </select>
+		
+		<label for="data">Escolha a Sala:</label>
+		<select id="idSala" name="idSala">
+			<option th:each="s : ${salas}"
+				th:value="${s.id}"
+			    th:text="${s.numero}">
+			</option>
+		</select>
+
+        <button type="submit">Agendar</button>
+    </form>
+</section>
+</body>
+</html>

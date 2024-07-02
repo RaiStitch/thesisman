@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atribuir Temas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<section>
+    <h2>Atribuir Temas</h2>
+    <form th:action="@{/docente/atribuir_tema}" method="post">
+		<input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}"/>
+        <label for="idArguente">Escolha o Aluno:</label>
+        <select id="idAluno" name="idAluno">
+            <option th:each="d : ${alunos}" th:value="${d.id}" th:text="${d.nAluno} + ' ' + ${d.nome} + ' ' + ${d.apelido}">Aluno</option>
+        </select>
+		
+		<label for="data">Escolha o tema a atribuir:</label>
+		<select id="idTema" name="idTema">
+			<option th:each="s : ${temas}"
+				th:value="${s.id}"
+			    th:text="${s.titulo}">
+			</option>
+		</select>
+
+        <button type="submit">Agendar</button>
+    </form>
+</section>
+</body>
+</html>

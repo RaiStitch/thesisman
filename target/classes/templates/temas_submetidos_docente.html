@@ -1,0 +1,36 @@
+<!--feito-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Temas Submetidos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<section>
+    <h2>Temas Submetidos:</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Id do Tema</th>
+            <th>Titulo</th>
+            <th>Descrição</th>
+			<th>Remuneração</th>
+			<th>Mestrados</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="t : ${temas}">
+            <td th:text="${t.id}"> ID </td>
+            <td th:text="${t.titulo}">  Titulo </td>
+            <td th:text="${t.descricao}"> Descrição </td>
+			<td th:text="${t.remuneracao}"> Remuneração </td>
+			<td th:text="${t.mestrados}"> mestrados </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

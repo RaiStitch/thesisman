@@ -1,0 +1,42 @@
+<!--feito-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<section>
+    <h2>Temas Disponiveis:</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Id do Tema</th>
+            <th>Titulo</th>
+            <th>Descrição</th>
+			<th>Remuneração</th>
+			<th>Cancelar Candidatura</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="t : ${temas}">
+            <td th:text="${t.id}"> ID </td>
+            <td th:text="${t.titulo}">  Titulo </td>
+            <td th:text="${t.descricao}"> Descrição </td>
+			<td th:text="${t.remuneracao}"> Remuneração </td>
+			<td>
+				<form th:action="@{/CancelarCandidatura}" method="post">
+					<input type="hidden" name="idAluno" th:value="${alunoId}"/>
+					<input type="hidden" name="idTema" th:value="${t.id}"/>
+					<button type="submit">Cancelar Candidatura</button>				
+				</form>
+			</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

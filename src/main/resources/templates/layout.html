@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+    <!--/* Standard layout can be mixed with Layout Dialect */-->
+        <div th:fragment="header">
+            <h1>Bem-Vindo à Pagina do aluno</h1>
+
+            <ol>
+                <li ><a th:href="@{/temas}">Listar os temas disponiveis</a></li>
+            </ol>
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

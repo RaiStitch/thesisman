@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aluno Page</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <section>
+		<h2>Aluno Page</h2>
+		        <form th:action="@{/temas}" method="post">
+		            <input type="hidden" name="idAluno" th:value="${alunoId}" />
+		            <input type="submit" value="Candidatar a temas" />
+		        </form>
+				
+				<form th:action="@{/temasEscolhidos}" method="post">
+					<input type="hidden" name="idAluno" th:value="${alunoId}" />
+					<input type="submit" value="Cancelar Cadidaturas" />
+				</form>
+        <h2 id="error" th:text="${error}"> </h2>
+    </section>
+
+
+</body>
+</html>

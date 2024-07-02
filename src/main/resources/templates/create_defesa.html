@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Tema</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+<section>
+    <h2>Agendar Defesa de Proposta:</h2>
+    <form th:action="@{/docente/create_defesa}" method="get">
+		<input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}"/>
+
+        <label for="idAluno">Escolha o Aluno:</label>
+        <select id="idAluno" name="idAluno">
+            <option th:each="a : ${alunos}" th:value="${a.id}" th:text="${a.nAluno} + ' ' + ${a.nome} + ' ' + ${a.apelido}">Aluno</option>
+        </select>
+		
+		<label for="data">Escolha o dia e a hora:</label>
+		<select id="data" name="data">
+			<option th:each="dateTime : ${agenda}"
+				th:value="${#temporals.format(dateTime, 'yyyy-MM-dd''T''HH:mm:ss')}"
+			    th:text="${#temporals.format(dateTime, 'dd/MM/yyyy HH:mm')}">
+			</option>
+		</select>
+
+        <button type="submit">next</button>
+    </form>
+</section>
+</body>
+</html>

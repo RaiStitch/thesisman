@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Docente Page</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <section>
+		<h2>Docente Page</h2>
+		        <form th:action="@{/docente/marcar_defesa}" method="get">
+		            <input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}" />
+		            <input type="submit" value="Submeter Tema" />
+		        </form>
+				
+				<form th:action="@{/docente/marcar_defesa}" method="get">
+					<input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}" />
+					<input type="submit" value="Agendar Defesa de Proposta de Tese" />
+				</form>
+				
+				<form th:action="@{/docente/temas_e_alunos}" method="get">
+					<input type="hidden" name="idDocenteCorrente" th:value="${idDocenteCorrente}" />
+					<input type="submit" value="Atribuir Tema aos Alunos" />
+				</form>
+        <h2 id="error" th:text="${error}"> </h2>
+    </section>
+
+
+</body>
+</html>

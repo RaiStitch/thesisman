@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registo Utilizador Empresarial</title>
+</head>
+<body>
+<h2 id="error" th:text="${error}"> </h2>
+
+  <h2> Registar um utilizador empresarial para o sistema</h2>
+  <form th:action="@{/register}" method="post">
+    <h4>Insira o seu nome</h4>
+    <input type="text" th:name="nome" />
+    <h4>Insira o seu apelido</h4>
+    <input type="text" th:name="apelido" />
+    <h4>Insira a sua empresa</h4>
+    <input type="text" th:name="empresa" />
+    <h4>Insira o seu email</h4>
+    <input type="text" th:name="email" />
+    <h4>Insira uma password</h4>
+    <input type="text" th:name="password" />
+    <input type="submit" value="Criar Conta" />
+  </form>
+</body>
+</html>
